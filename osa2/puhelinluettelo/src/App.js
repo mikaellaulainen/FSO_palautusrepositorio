@@ -24,10 +24,10 @@ const App = () => {
     event.preventDefault()
 
     if (persons.some(person => person["name"].toLowerCase() === newName.toLowerCase())){
-      const c=persons.find(person => person["name"].toLowerCase() === newName.toLowerCase())
+      const change=persons.find(person => person["name"].toLowerCase() === newName.toLowerCase())
       if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)){
         personService
-          .update(c.id,{ ...c, number: newNum })
+          .update(change.id,{ ...change, number: newNum })
           .then(updated => {
             console.log(updated)
             setChangeMessage(
